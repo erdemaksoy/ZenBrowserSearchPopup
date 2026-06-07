@@ -19,22 +19,82 @@ This extension bridges a favorite feature gap across browsers by bringing **Oper
 
 ---
 
-## 🛠️ Project Architecture
+## 🛠️ Project Architecture & Manifest Template
 
-This extension is built on modern Manifest V3 standards with a highly modular and lightweight script execution order to guarantee high performance and low memory footprints:
+To make the extension work correctly in Gecko-based environments (like Zen Browser), a valid Manifest V3 structure is required. Below is the standard configuration template used in this project:
 
-* **`utils.js`**: Core helper functions shared across the UI components.
-* **`currency-service.js`**: Deals with API fetch calls, currency string parsing, and computation logic.
-* **`popup-manager.js`**: Handles the DOM injection, animations, and coordinates the selection UI coordinates.
-* **`content.js`**: The main orchestration script that listens to user mouse event hooks (`mouseup`, `selectionchange`).
+```json
+{
+  "manifest_version": 3,
+  "name": "Zen Search and Currency Converter Popup",
+  "version": "1.0.0",
+  "description": "Brings the popular Opera GX text selection popup to Zen Browser.",
+  "permissions": [
+    "storage",
+    "search"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "utils.js",
+        "currency-service.js",
+        "popup-manager.js",
+        "content.js"
+      ]
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "your-extension-id@example.com",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  }
+}
+```
+
+### 🔑 Script Execution Order
+
+The order of scripts inside the `js` array of `content_scripts` is highly critical. Since JavaScript files depend on each other's global objects, they must be loaded sequentially:
+
+1. **`utils.js`**: Core helper utilities and shared configurations.
+2. **`currency-service.js`**: Handles API communication, parsing logic, and math calculations.
+3. **`popup-manager.js`**: Controls DOM injection, positioning logic, and UI rendering.
+4. **`content.js`**: The main orchestrator that listens to mouse hooks and text selections.
 
 ---
 
 ## 💾 Local Development & Installation
 
-Since this extension is explicitly tailored for the **Zen Browser / Gecko** architecture, you can install and test it locally with ease:
+Since this extension is explicitly tailored for the **Zen Browser** architecture, you can install and test it locally with ease:
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/erdemaksoy/ZenBrowserSearchPopup.git](https://github.com/erdemaksoy/ZenBrowserSearchPopup.git)
-   cd ZenBrowserSearchPopup
+   git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
+   cd your-repo-name
+   ```
+
+   2. Set up your local configuration file (`manifest.json`) using the template provided above.
+3. Open Zen Browser and navigate to `about:debugging`.
+4. Click on **"This Firefox"** (or **"This Zen"**) in the left panel.
+5. Click **"Load Temporary Add-on..."** (Geçici Eklenti Yükle).
+6. Select the `manifest.json` file from your project folder.
+7. *Voilà!* Test it out by highlighting some text or prices on any web page.
+
+---
+
+## 🔒 Privacy First
+* **No Tracking:** This extension runs entirely inside your client-side sandbox environment.
+* **Zero Telemetry:** Data collection permissions are strictly disabled (`none`). Your browsing patterns, highlighted words, and local parameters never leave your local machine.
+
+## 📄 License
+This project is licensed under the **All Rights Reserved** specification. Feel free to clone and experiment locally!
