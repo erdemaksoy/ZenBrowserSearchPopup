@@ -19,39 +19,22 @@ This extension bridges a favorite feature gap across browsers by bringing **Oper
 
 ---
 
-## 🛠️ Project Architecture & Manifest Structure
+## 🛠️ Project Architecture
 
-To understand how the extension operates under the hood, here is a breakdown of our configuration based on Manifest V3:
+This extension is built on modern Manifest V3 standards with a highly modular and lightweight script execution order to guarantee high performance and low memory footprints:
 
-```json
-{
-  "manifest_version": 3,
-  "name": "Zen Search and Currency Converter Popup",
-  "version": "1.0.0",
-  "permissions": [
-    "storage",
-    "search"
-  ],
-  "background": {
-    "scripts": ["background.js"]
-  },
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": [
-        "utils.js",
-        "currency-service.js",
-        "popup-manager.js",
-        "content.js"
-      ]
-    }
-  ],
-  "browser_specific_settings": {
-    "gecko": {
-      "id": "zen-search-and-currency-converter-popup@erdem.dev",
-      "data_collection_permissions": {
-        "required": ["none"]
-      }
-    }
-  }
-}
+* **`utils.js`**: Core helper functions shared across the UI components.
+* **`currency-service.js`**: Deals with API fetch calls, currency string parsing, and computation logic.
+* **`popup-manager.js`**: Handles the DOM injection, animations, and coordinates the selection UI coordinates.
+* **`content.js`**: The main orchestration script that listens to user mouse event hooks (`mouseup`, `selectionchange`).
+
+---
+
+## 💾 Local Development & Installation
+
+Since this extension is explicitly tailored for the **Zen Browser / Gecko** architecture, you can install and test it locally with ease:
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/erdemaksoy/ZenBrowserSearchPopup.git](https://github.com/erdemaksoy/ZenBrowserSearchPopup.git)
+   cd ZenBrowserSearchPopup
