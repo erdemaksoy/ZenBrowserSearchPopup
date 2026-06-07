@@ -1,0 +1,17 @@
+{
+  "name": "zen-currency-converter-search-popup",
+  "version": "1.0.0",
+  "description": "Brings the popular Opera GX text selection popup to Zen Browser. Instantly search highlighted text using zen browser search. Automatically convert global currencies to your local currency.",
+  "main": "background.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "jest": "^30.4.2",
+    "jest-environment-jsdom": "^30.4.1"
+  }
+}
