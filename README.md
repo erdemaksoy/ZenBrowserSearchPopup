@@ -82,8 +82,7 @@ Since this extension is explicitly tailored for the **Zen Browser** architecture
    git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
    cd your-repo-name
    ```
-
-   2. Set up your local configuration file (`manifest.json`) using the template provided above.
+2. Set up your local configuration file (`manifest.json`) using the template provided above.
 3. Open Zen Browser and navigate to `about:debugging`.
 4. Click on **"This Firefox"** (or **"This Zen"**) in the left panel.
 5. Click **"Load Temporary Add-on..."** (Geçici Eklenti Yükle).
@@ -97,4 +96,4 @@ Since this extension is explicitly tailored for the **Zen Browser** architecture
 * **Zero Telemetry:** Data collection permissions are strictly disabled (`none`). Your browsing patterns, highlighted words, and local parameters never leave your local machine.
 
 ## 📄 License
-This project is licensed under the **All Rights Reserved** specification. Feel free to clone and experiment locally!
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details. Feel free to clone, modify, and distribute!
