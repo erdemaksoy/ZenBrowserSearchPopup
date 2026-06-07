@@ -1,4 +1,4 @@
-# Zen Smart Selection
+# Zen Smart Selection Extension
 
 A lightweight, privacy-focused Manifest V3 extension designed exclusively for **Zen Browser**. 
 
