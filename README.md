@@ -4,6 +4,18 @@ A lightweight, privacy-focused Manifest V3 browser extension designed exclusivel
 
 This extension bridges a favorite feature gap across browsers by bringing **Opera GX's iconic text-selection popup utility** straight into Zen Browser's beautiful, minimalist ecosystem. Highlight any text to search instantly or convert foreign currencies on the fly!
 
+<div align="center">
+
+# 🚀 Try It Live!
+
+**Want to experience it right away?** The extension is officially published on the Firefox Add-ons store. Elevate your Zen Browser experience with just one click!
+
+[![Install on Firefox](https://img.shields.io/badge/Firefox_Add--ons-Install_Extension-FF7139?style=for-the-badge&logo=firefox-browser&logoColor=white)](https://addons.mozilla.org/en-US/firefox/addon/search-and-currency-popup/)
+
+---
+
+</div>
+
 ---
 
 ## ✨ Features
